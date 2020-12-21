@@ -5,7 +5,9 @@ import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
 import { v4 as uuid } from "uuid";
 
-const initailExpenses = localStorage.getItem("expenses")? JSON.parse(localStorage.getItem("expenses")) : [];
+const initailExpenses = localStorage.getItem("expenses")
+  ? JSON.parse(localStorage.getItem("expenses"))
+  : [];
 
 function App() {
   const [expenses, setExpenses] = useState(initailExpenses);
@@ -14,11 +16,10 @@ function App() {
   const [alert, setAlert] = useState({ show: false });
   const [edit, setEdit] = useState(false);
   const [id, setId] = useState(0);
-  
-  useEffect(()=> {
-    console.log("we called use effect");
-    localStorage.setItem("expenses", JSON.stringify(expenses))
-  },[expenses])
+
+  useEffect(() => {
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+  }, [expenses]);
 
   // ******** functionlity ********
   const handleCharge = (e) => {
